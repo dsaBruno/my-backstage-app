@@ -71,12 +71,19 @@ proxy:
 # Note: After experimenting with basic setup, use CI/CD to generate docs
 # and an external cloud storage when deploying TechDocs for production use-case.
 # https://backstage.io/docs/features/techdocs/how-to-guides#how-to-migrate-from-techdocs-basic-to-recommended-deployment-approach
+# techdocs:
+#   builder: 'local' # Alternatives - 'external'
+#   generator:
+#     runIn: 'docker' # Alternatives - 'local'
+#   publisher:
+#     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 techdocs:
   builder: 'local' # Alternatives - 'external'
-  generator:
-    runIn: 'docker' # Alternatives - 'local'
+  generators:
+    techdocs: 'local' # Alternatives - 'docker'
   publisher:
-    type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
+    type: 'local' # Alternatives - 'googleGcs' or 'awsS3' or 'azureBlobStorage' or 'openStackSwift'. Read documentation for using alternatives.
+
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
@@ -150,5 +157,11 @@ catalog:
     ## Uncomment these lines to add more example to create app
     - type: url
       target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/create-react-app/template.yaml
+      rules:
+        - allow: [Template]
+
+
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/plugins/techdocs-backend/examples/documented-component/catalog-info.yaml
       rules:
         - allow: [Template]
