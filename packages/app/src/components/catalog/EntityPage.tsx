@@ -78,6 +78,12 @@ import {
 
 import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
 
+import {
+  EntityDatadogContent,
+  EntityDatadogGraphCard,
+  isDatadogGraphAvailable
+ } from '@roadiehq/backstage-plugin-datadog';
+
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -137,7 +143,15 @@ const entityWarningContent = (
 );
 
 const overviewContent = (
+  
   <Grid container spacing={3} alignItems="stretch">
+        <EntitySwitch>
+      <EntitySwitch.Case if={isDatadogGraphAvailable}>
+        <Grid item>
+          <EntityDatadogGraphCard/>
+        </Grid>
+      </EntitySwitch.Case>
+    </EntitySwitch>
     {entityWarningContent}
     <Grid item md={6}>
       <EntityAboutCard variant="gridItem" />
@@ -162,6 +176,10 @@ const serviceEntityPage = (
     </EntityLayout.Route>
     <EntityLayout.Route path="/" title="Overview">
       {overviewContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/datadog" title="Datadog">
+      <EntityDatadogContent />
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
