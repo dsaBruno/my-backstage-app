@@ -77,12 +77,18 @@ proxy:
 #     runIn: 'docker' # Alternatives - 'local'
 #   publisher:
 #     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
+
+
+
 techdocs:
   builder: 'local' # Alternatives - 'external'
   generators:
     techdocs: 'local' # Alternatives - 'docker'
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3' or 'azureBlobStorage' or 'openStackSwift'. Read documentation for using alternatives.
+
+
+
 
 # techdocs:
 #   # techdocs.generator is used to configure how documentation sites are generated using MkDocs.
