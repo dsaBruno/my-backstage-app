@@ -30,10 +30,11 @@ dist-types
 *.swp
 
 # MkDocs build output
-site
+
 
 # Local configuration files
 *.local.yaml
 
 # Sensitive credentials
 *-credentials.yaml
+

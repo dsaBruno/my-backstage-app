@@ -1,0 +1,6 @@
+site_name: Loja Santo Antonio Docs
+site_url: https://github.com/dsaBruno/my-backstage-app
+nav:
+    - Home: index.md
+    - About: about.md
+theme: readthedocs

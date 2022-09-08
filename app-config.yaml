@@ -263,8 +263,8 @@ auth:
         {
           development:
             {
-              clientId: '7d3acfc5125eb820aaa6',
-              clientSecret: '29244dee5461c3e700e5c280d5fdf0c82439317e',
+              clientId: '3103cab5645551c2cc62',
+              clientSecret: '2ec29df0ad16058f395a9584fb6d3f0c35afb33b',
             },
         },
     }
